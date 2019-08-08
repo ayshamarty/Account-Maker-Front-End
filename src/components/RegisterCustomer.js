@@ -22,7 +22,7 @@ export default class RegisterCustomer extends Component {
         }
 
         axios
-            .post("http://account:8080/Account/postAccount", newCustomer)
+            .post("/account/Account/postAccount", newCustomer)
             .then(response => {
 
                 this.setState({ "accountNumber": "Your account number is: " + JSON.stringify(response.data.accountNumber) })
