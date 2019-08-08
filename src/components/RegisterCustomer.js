@@ -25,7 +25,7 @@ export default class RegisterCustomer extends Component {
             .post("/account/Account/postAccount", newCustomer)
             .then(response => {
 
-                this.setState({ "accountNumber": "Your account number is: " + JSON.stringify(response.data.accountNumber) })
+		this.setState({ "accountNumber": "Your account number is: " + JSON.stringify(response.data.accountNumber) })
                 this.setState({ "prize": JSON.stringify(response.data.prize) })
 
                 console.log(response.data.accountNumber)
