@@ -8,7 +8,7 @@ export default class RegisterCustomer extends Component {
         this.state = {
             data: [],
             accountNumber: "",
-            prizeResponse: "",
+            prize: "",
         };
     }
 
@@ -22,11 +22,11 @@ export default class RegisterCustomer extends Component {
         }
 
         axios
-            .post("http://localhost:8080/createAccount", newCustomer)
+            .post("http://account:8080/Account/postAccount", newCustomer)
             .then(response => {
 
                 this.setState({ "accountNumber": "Your account number is: " + JSON.stringify(response.data.accountNumber) })
-                this.setState({ "prizeResponse": JSON.stringify(response.data.prize) })
+                this.setState({ "prize": JSON.stringify(response.data.prize) })
 
                 console.log(response.data.accountNumber)
                 console.log(response.data.prize)
@@ -45,7 +45,7 @@ export default class RegisterCustomer extends Component {
                     <input id="lastname" type="text" placeholder="Last Name"></input>
                     <br></br>
                     <p style={{ color: 'blue' }}>{this.state.accountNumber}</p>
-                    <p style={{ color: 'blue' }}>{this.state.prizeResponse}</p>
+                    <p style={{ color: 'blue' }}>{this.state.prize}</p>
                     <br></br>
                     <button type="submit" >Register Customer</button>
                 </form>
